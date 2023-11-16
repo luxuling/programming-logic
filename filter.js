@@ -73,10 +73,10 @@ querys.push({
   value: "female",
 });
 querys.push({
-  name: queryName.OR,
-  property: "name",
-  type: queryType.EQUAL,
-  value: "joko",
+  name: queryName.AND,
+  property: "dob",
+  type: queryType.NOTEQ,
+  value: "27/12/2025",
 });
 
 class Node {
@@ -139,17 +139,18 @@ class LinkedList {
         }
       }
 
-      if (!passFilter) {
-        for (let i = 0; i < queries.length; i++) {
-          const query = queries[i];
-          if (query.name === queryName.OR) {
-            if (current.data[query.property] === query.value) {
-              passFilter = true;
-              break;
-            }
-          }
-        }
-      }
+      // Logic OR need improvement
+      // if (!passFilter) {
+      //   for (let i = 0; i < queries.length; i++) {
+      //     const query = queries[i];
+      //     if (query.name === queryName.OR) {
+      //       if (current.data[query.property] === query.value) {
+      //         passFilter = true;
+      //         break;
+      //       }
+      //     }
+      //   }
+      // }
 
       if (passFilter) {
         filteredList.insert(current.data);
